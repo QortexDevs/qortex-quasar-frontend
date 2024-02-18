@@ -1,5 +1,6 @@
 <template>
-  <button class="hover:tw-opacity-90"
+  <button
+    class="hover:tw-opacity-90"
     @click="onClick">
     <slot />
   </button>

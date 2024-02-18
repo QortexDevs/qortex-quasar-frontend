@@ -4,7 +4,8 @@
 
     <q-page-container>
       <q-page class="flex flex-center">
-        <q-spinner color="primary"
+        <q-spinner
+          color="primary"
           size="xl" />
       </q-page>
     </q-page-container>

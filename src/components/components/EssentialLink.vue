@@ -1,9 +1,11 @@
 <template>
-  <q-item :href="link"
+  <q-item
+    :href="link"
     tag="a"
     target="_blank"
     clickable>
-    <q-item-section v-if="icon"
+    <q-item-section
+      v-if="icon"
       avatar>
       <q-icon :name="icon" />
     </q-item-section>

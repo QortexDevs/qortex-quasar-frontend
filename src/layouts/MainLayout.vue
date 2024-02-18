@@ -2,7 +2,8 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn aria-label="Menu"
+        <q-btn
+          aria-label="Menu"
           icon="menu"
           dense
           flat
@@ -14,7 +15,8 @@
         </q-toolbar-title>
 
         <div>
-          {{ user.name }} <q-btn icon="logout"
+          {{ user.name }} <q-btn
+            icon="logout"
             :loading="loading"
             round
             @click="logout" />
@@ -22,7 +24,8 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen"
+    <q-drawer
+      v-model="leftDrawerOpen"
       bordered
       show-if-above>
       <q-list>
@@ -30,7 +33,8 @@
           Essential Links
         </q-item-label>
 
-        <EssentialLink v-for="link in essentialLinks"
+        <EssentialLink
+          v-for="link in essentialLinks"
           :key="link.title"
           v-bind="link" />
       </q-list>
@@ -38,7 +42,8 @@
 
     <q-page-container>
       <router-view v-slot="{ Component }">
-        <transition enter-active-class="animated fadeIn"
+        <transition
+          enter-active-class="animated fadeIn"
           leave-active-class="animated fadeOut absolute"
           appear>
           <component :is="Component" />

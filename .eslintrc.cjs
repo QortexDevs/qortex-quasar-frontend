@@ -77,7 +77,7 @@ module.exports = {
     }],
     'vue/first-attribute-linebreak': ['error', {
       singleline: 'beside',
-      multiline: 'beside'
+      multiline: 'below'
     }],
     'vue/html-closing-bracket-newline': ['error', {
       singleline: 'never',

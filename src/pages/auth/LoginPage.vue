@@ -1,5 +1,6 @@
 <template>
-  <q-page class="flex flex-center tw-bg-slate-400"
+  <q-page
+    class="flex flex-center tw-bg-slate-400"
     padding>
     <q-form @submit="login">
       <q-card>
@@ -7,16 +8,19 @@
           Вход
         </q-card-section>
         <q-card-section class="tw-pt-0">
-          <q-input v-model="credentials.username"
+          <q-input
+            v-model="credentials.username"
             label="Имя пользователя"
             :rules="[val => val !== '' || 'Обязательное поле']" />
-          <q-input v-model="credentials.password"
+          <q-input
+            v-model="credentials.password"
             label="Пароль"
             :rules="[val => val !== '' || 'Обязательное поле']"
             type="password" />
         </q-card-section>
         <q-card-section class="text-center">
-          <q-btn color="primary"
+          <q-btn
+            color="primary"
             type="submit">
             Вход
           </q-btn>

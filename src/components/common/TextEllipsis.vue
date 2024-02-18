@@ -1,8 +1,10 @@
 <template>
-  <div class="tw-max-w-full"
+  <div
+    class="tw-max-w-full"
     :class="{'tw-cursor-pointer': tooltip}"
     @click="onClick">
-    <div ref="elementRef"
+    <div
+      ref="elementRef"
       class="tw-overflow-hidden tw-whitespace-nowrap tw-text-ellipsis">
       <slot />
     </div>
