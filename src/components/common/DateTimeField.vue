@@ -1,7 +1,7 @@
 <template>
   <span>
     {{ formatDate(value) }}
-    <span class="tw-text-dark-3">
+    <span class="text-dark-3">
       {{ formatTime(value) }}
     </span>
   </span>

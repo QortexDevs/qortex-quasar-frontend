@@ -1,11 +1,11 @@
 <template>
   <div
-    class="tw-max-w-full"
-    :class="{'tw-cursor-pointer': tooltip}"
+    class="max-w-full"
+    :class="{'cursor-pointer': tooltip}"
     @click="onClick">
     <div
       ref="elementRef"
-      class="tw-overflow-hidden tw-whitespace-nowrap tw-text-ellipsis">
+      class="overflow-hidden whitespace-nowrap text-ellipsis">
       <slot />
     </div>
     <q-tooltip v-if="tooltip">

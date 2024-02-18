@@ -1,8 +1,8 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
   <q-page>
-    <div class="tw-container tw-py-14">
-      <h4 class="tw-text-h4">
+    <div class="container py-14">
+      <h4 class="text-h4">
         Тестовая страница
       </h4>
     </div>

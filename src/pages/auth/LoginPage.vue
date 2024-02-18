@@ -1,13 +1,13 @@
 <template>
   <q-page
-    class="flex flex-center tw-bg-slate-400"
+    class="flex flex-center bg-slate-400"
     padding>
     <q-form @submit="login">
       <q-card>
-        <q-card-section class="tw-text-xl tw-font-bold tw-text-center">
+        <q-card-section class="text-xl font-bold text-center">
           Вход
         </q-card-section>
-        <q-card-section class="tw-pt-0">
+        <q-card-section class="pt-0">
           <q-input
             v-model="credentials.username"
             label="Имя пользователя"
