@@ -1,0 +1,12 @@
+version: "3.8"
+   
+services:
+  frontend:
+    build: .
+    container_name: quasar-frontend
+    volumes:
+      - ./:/app/src
+    ports:
+      - 3000:3000
+# if container need debugging
+#    entrypoint: "bash -c 'while true; do sleep 2; done'"
