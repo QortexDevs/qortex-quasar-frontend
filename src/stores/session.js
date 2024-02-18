@@ -17,7 +17,7 @@ export const useSessionStore = defineStore('session', () => {
 
   const authorized = computed(() => token.value !== undefined)
 
-  const boot = async () => {
+  async function boot () {
     setParams()
 
     const localToken = getToken()
@@ -33,7 +33,7 @@ export const useSessionStore = defineStore('session', () => {
     loading.value = false
   }
 
-  const setParams = (withRemove = true) => {
+  async function setParams (withRemove = true) {
     if (window.location.search) {
       const url = new URL(window.location.href)
       const params = Object.fromEntries(Array.from(url.searchParams.entries()))
@@ -48,38 +48,38 @@ export const useSessionStore = defineStore('session', () => {
     }
   }
 
-  const getToken = () => {
+  async function getToken () {
     return LocalStorage.has('api_key')
       ? LocalStorage.getItem('api_key')
       : undefined
   }
 
-  const setToken = async (apiKey) => {
+  async function setToken (apiKey) {
     token.value = apiKey
     await applyApiKey(apiKey)
     LocalStorage.set('api_key', apiKey)
   }
 
-  const clearToken = () => {
+  async function clearToken () {
     token.value = undefined
     clearApiKey()
     LocalStorage.remove('api_key')
   }
 
-  const loadReferences = async () => {
+  async function loadReferences () {
     await Promise.all(commonReferences.map(async (store) => await store.loadData()))
     await Promise.all(userDependentReferences.map(async (store) => await store.loadData()))
   }
 
-  const resetReferences = () => {
+  async function resetReferences () {
     userDependentReferences.forEach((store) => store.reset())
   }
 
-  const loadUser = async () => {
+  async function loadUser () {
     user.value = { name: 'Тестовый пользователь' }
   }
 
-  const login = async (credentials) => {
+  async function login (credentials) {
     await delay(1500)
 
     if (credentials.password !== 'password') {
@@ -95,7 +95,7 @@ export const useSessionStore = defineStore('session', () => {
     }
   }
 
-  const logout = async () => {
+  async function logout () {
     await delay(1500)
     clearToken()
     user.value = {}
