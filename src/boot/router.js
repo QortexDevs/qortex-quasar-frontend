@@ -20,6 +20,8 @@ export default boot(async ({ router }) => {
     } else if (to.name !== 'login' && requiresAuth && !authorized) {
       route = { name: 'login' }
       sessionStore.redirect = { name: to.name, path: to.fullPath, params: to.params }
+    } else if (to.name === 'login' && authorized) {
+      route = { name: 'home' }
     }
 
     next(route)
