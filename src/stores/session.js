@@ -20,9 +20,9 @@ export const useSessionStore = defineStore('session', () => {
   const boot = async () => {
     setParams()
 
-    const apiKey = getApiKey()
-    if (apiKey) {
-      await setToken(apiKey)
+    const localToken = getToken()
+    if (localToken) {
+      await setToken(localToken)
     }
 
     if (authorized.value) {
@@ -48,7 +48,7 @@ export const useSessionStore = defineStore('session', () => {
     }
   }
 
-  const getApiKey = () => {
+  const getToken = () => {
     return LocalStorage.has('api_key')
       ? LocalStorage.getItem('api_key')
       : undefined
