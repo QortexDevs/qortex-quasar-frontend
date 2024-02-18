@@ -1,22 +1,15 @@
 /** @type {import('tailwindcss').Config} */
+
+const { brandColors, colorClassesSafeList } = require('./src/services/colorsConfig')
+
 module.exports = {
   content: ['./src/**/*.{html,js,vue}'],
-  prefix: 'tw-',
+  safelist: [
+    ...colorClassesSafeList
+  ],
   theme: {
     extend: {
-      colors: {
-        primary: '#1976D2',
-        secondary: '#26A69A',
-        accent: '#9C27B0',
-
-        dark: '#1D1D1D',
-        'dark-page': '#121212',
-
-        positive: '#21BA45',
-        negative: '#C10015',
-        info: '#31CCEC',
-        warning: '#F2C037'
-      }
+      colors: brandColors
     }
   },
   plugins: []
