@@ -1,34 +1,51 @@
 {
-    "name": "vuejs-frontend",
+    "name": "qortex-quasar-frontend",
     "version": "1.0.0",
-    "description": "VueJS template frontend",
+    "description": "Qortex Quasar & Tailwind boilerplate",
+    "productName": "Quasar App",
     "main": "src/main.js",
-    "repository": "https://github.com/NickMitin/vuejs-frontend.git",
+    "repository": "https://github.com/QortexDevs/qortex-quasar-frontend.git",
     "author": "Qortex",
     "license": "MIT",
-    "private": false,
     "scripts": {
-        "dev": "vite --host 0.0.0.0",
-        "build": "vite build",
-        "serve": "vite preview"
+      "lint": "eslint --ext .js,.vue ./",
+      "fix": "eslint --ext .js,.vue --fix ./",
+      "test": "echo \"No test specified\" && exit 0",
+      "dev": "quasar dev",
+      "build": "quasar build"
     },
     "dependencies": {
-        "@gtm-support/vue-gtm": "^2.0.0",
-        "mobile-detect": "^1.4.5",
-        "vue": "^3.2.45",
-        "vue-router": "^4.1.6",
-        "vue3-observe-visibility": "^0.1.2",
-        "vue3-yandex-metrika": "^0.0.3",
-        "vuex": "^4.1.0"
+      "@quasar/cli": "^2.3.0",
+      "@quasar/extras": "^1.16.4",
+      "axios": "^1.2.1",
+      "pinia": "^2.0.11",
+      "quasar": "^2.14.1",
+      "tailwindcss": "^3.4.1",
+      "vue": "3",
+      "vue-router": "4",
+      "lodash": "^4.17.21",
+      "@gtm-support/vue-gtm": "^2.0.0",
+      "vue3-yandex-metrika": "^0.0.3"
     },
     "devDependencies": {
-        "@vitejs/plugin-vue": "^4.0.0",
-        "imagemin": "^7.0.1", 
-        "imagemin-jpegtran": "^7.0.0",
-        "imagemin-pngquant": "^9.0.2",
-        "sass": "^1.57.1",
-        "sass-loader": "^13.2.0",
-        "vite": "^4.0.4",
-        "webpack": "^5.75.0"
+      "@quasar/app-vite": "^1.7.0",
+      "autoprefixer": "^10.4.16",
+      "eslint": "^8.10.0",
+      "eslint-config-standard": "^17.0.0",
+      "eslint-plugin-import": "^2.19.1",
+      "eslint-plugin-n": "^15.0.0",
+      "eslint-plugin-promise": "^6.0.0",
+      "eslint-plugin-vue": "^9.0.0",
+      "postcss": "^8.4.31",
+      "vite-plugin-svg-sprite": "^0.5.0",
+      "imagemin": "^7.0.1", 
+      "imagemin-jpegtran": "^7.0.0",
+      "imagemin-pngquant": "^9.0.2"
+    },
+    "engines": {
+      "node": "^20 || ^18 || ^16 || ^14.19",
+      "npm": ">= 6.13.4",
+      "yarn": ">= 1.21.1"
     }
-}
+  }
+  

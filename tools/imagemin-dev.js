@@ -1,34 +1,36 @@
-const fs = require('fs')
-const path = require('path')
-const imagemin = require('imagemin')
-const imageminJpegtran = require('imagemin-jpegtran')
-const imageminPngquant = require('imagemin-pngquant')
+import { readdirSync, statSync } from 'fs'
+import { join, basename, dirname } from 'path'
 
-const bytesToMegabytes = bytes => Math.round((bytes / (1024 * 1024)  + Number.EPSILON) * 100) / 100
+import imagemin from 'imagemin'
+import imageminJpegtran from 'imagemin-jpegtran'
+import imageminPngquant from 'imagemin-pngquant'
+
+const bytesToMegabytes = bytes => Math.round((bytes / (1024 * 1024) + Number.EPSILON) * 100) / 100
 
 const getAllFiles = function (dirPath, arrayOfFiles) {
-  files = fs.readdirSync(dirPath)
+  const files = readdirSync(dirPath)
 
   arrayOfFiles = arrayOfFiles || []
 
   files.forEach(function (file) {
-    if (fs.statSync(dirPath + '/' + file).isDirectory()) {
+    if (statSync(dirPath + '/' + file).isDirectory()) {
       arrayOfFiles = getAllFiles(dirPath + '/' + file, arrayOfFiles)
     } else {
-      arrayOfFiles.push(path.join(dirPath, '/', file))
+      arrayOfFiles.push(join(dirPath, '/', file))
     }
   })
 
   return arrayOfFiles
 }
+
 ;(async () => {
   const sourceFiles = getAllFiles('/app/src/assets')
   for (const sourceFile of sourceFiles) {
     console.log(sourceFile)
-    const fileName = path.basename(sourceFile)
-    const filePath = path.dirname(sourceFile)
-    const originalFileSize = bytesToMegabytes(fs.statSync(sourceFile).size)
-    const files = await imagemin([sourceFile], {
+    const fileName = basename(sourceFile)
+    const filePath = dirname(sourceFile)
+    const originalFileSize = bytesToMegabytes(statSync(sourceFile).size)
+    await imagemin([sourceFile], {
       destination: filePath,
       plugins: [
         imageminJpegtran(),
@@ -37,7 +39,7 @@ const getAllFiles = function (dirPath, arrayOfFiles) {
         })
       ]
     })
-    const resultFileSize = bytesToMegabytes(fs.statSync(sourceFile).size)
+    const resultFileSize = bytesToMegabytes(statSync(sourceFile).size)
     console.log(fileName, originalFileSize, resultFileSize)
   }
 })()
