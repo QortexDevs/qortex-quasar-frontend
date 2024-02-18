@@ -4,6 +4,9 @@ services:
   frontend:
     build: .
     container_name: quasar-frontend
+    environment:
+      - DOMAIN_NAME=%%project-hostname%%
+      - API_KEY=%%api-key%%
     volumes:
       - ./:/app/src
     ports:
