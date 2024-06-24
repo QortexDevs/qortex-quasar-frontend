@@ -9,6 +9,7 @@ const STANDARD_COLORS = {
   warning: '#F2C037'
 }
 
+// !! ДЕРЖАТЬ В СИНКЕ c quasar.variables.sass !!
 const CUSTOM_COLORS = {
   transparent: 'transparent',
   test: '#371F76'
