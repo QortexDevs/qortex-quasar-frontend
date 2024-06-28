@@ -21,7 +21,7 @@ const brandColors = {
 }
 
 const colorClassesSafeList = Object.keys(CUSTOM_COLORS).flatMap((color) => {
-  return [`bg-${color}`, `text-${color}`]
+  return [`bg-${color}`, `text-${color}`, `border-${color}`]
 })
 
 module.exports = { STANDARD_COLORS, CUSTOM_COLORS, brandColors, colorClassesSafeList }
