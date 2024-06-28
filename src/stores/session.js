@@ -48,7 +48,7 @@ export const useSessionStore = defineStore('session', () => {
     }
   }
 
-  async function getToken () {
+  function getToken () {
     return LocalStorage.has('api_key')
       ? LocalStorage.getItem('api_key')
       : undefined
