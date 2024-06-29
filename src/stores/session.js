@@ -54,12 +54,12 @@ export const useSessionStore = defineStore('session', () => {
       : undefined
   }
 
-  async function setToken (apiKey) {
-    const isTokenApplied = await applyApiKey(apiKey)
+  async function setToken (newToken) {
+    const isTokenApplied = await applyApiKey(newToken)
 
     if (isTokenApplied) {
-      token.value = apiKey
-      LocalStorage.set('api_key', apiKey)
+      token.value = newToken
+      LocalStorage.set('api_key', newToken)
     } else {
       token.value = undefined
       LocalStorage.remove('api_key')
@@ -93,9 +93,9 @@ export const useSessionStore = defineStore('session', () => {
     }
 
     const token = 'testToken'
+    await setToken(token)
 
-    if (token) {
-      setToken(token)
+    if (authorized.value) {
       await loadUser()
       await loadReferences()
     }
