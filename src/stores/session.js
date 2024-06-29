@@ -11,9 +11,9 @@ const userDependentReferences = []
 export const useSessionStore = defineStore('session', () => {
   const loading = ref(true)
   const params = ref({})
-  const token = ref(undefined)
+  const token = ref()
   const user = ref({})
-  const redirect = ref(undefined)
+  const redirect = ref()
 
   const authorized = computed(() => token.value !== undefined)
 
@@ -55,9 +55,15 @@ export const useSessionStore = defineStore('session', () => {
   }
 
   async function setToken (apiKey) {
-    token.value = apiKey
-    await applyApiKey(apiKey)
-    LocalStorage.set('api_key', apiKey)
+    const isTokenApplied = await applyApiKey(apiKey)
+
+    if (isTokenApplied) {
+      token.value = apiKey
+      LocalStorage.set('api_key', apiKey)
+    } else {
+      token.value = undefined
+      LocalStorage.remove('api_key')
+    }
   }
 
   async function clearToken () {

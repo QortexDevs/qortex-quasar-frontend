@@ -14,7 +14,7 @@ export async function applyApiKey (key) {
     await crudIndex(TEST_ENDPOINT)
     return true
   } catch (error) {
-    const isInvalidKey = error instanceof AxiosError && error.response?.status === 403
+    const isInvalidKey = error instanceof AxiosError && [403, 401].includes(error.response?.status)
     if (isInvalidKey) clearApiKey()
     return !isInvalidKey
   }
